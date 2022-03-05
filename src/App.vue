@@ -1,19 +1,66 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="changeResult">click</button>
+    {{ result }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+
+  data() {
+    return {
+      result: 0,
+    };
+  },
+
+  methods: {
+    changeResult() {
+      console.log("1. changeResult");
+      this.result = 1;
+    },
+  },
+
+  beforeCreate() {
+    console.log("1. beforeCreate");
+  },
+
+  created() {
+    console.log("2. created");
+  },
+
+  // DOM <- template loading /
+
+  beforeMount() {
+    console.log("3. beforeMount");
+  },
+
+  mounted() {
+    console.log("4. mounted");
+  },
+
+  // template
+
+  beforeUpdate() {
+    console.log("beforeUpdate");
+  },
+
+  updated() {
+    console.log("updated");
+  },
+
+  // template
+  beforeDestroy() {
+    console.log("beforeDestroy");
+  },
+
+  destroyed() {
+    console.log("destroyed");
+  },
+
+  computed: {},
+};
 </script>
 
 <style>
